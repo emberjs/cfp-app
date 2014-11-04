@@ -17,7 +17,8 @@ class Proposal < ActiveRecord::Base
   has_one :track, through: :session
 
   validates :title, :abstract, presence: true
-  validates :abstract, length: {maximum: 600}
+  validates :abstract, length: { maximum: 600 }
+  validates_associated :speakers
 
   serialize :last_change
   serialize :proposal_data, Hash
