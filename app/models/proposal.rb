@@ -267,6 +267,7 @@ end
 #  confirmation_notes    :text
 #  updated_by_speaker_at :datetime
 #  proposal_data         :text
+#  prior_experience      :text
 #
 # Indexes
 #
