@@ -268,6 +268,7 @@ end
 #  updated_by_speaker_at :datetime
 #  proposal_data         :text
 #  prior_experience      :text
+#  video_url             :string(255)
 #
 # Indexes
 #
