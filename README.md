@@ -184,7 +184,7 @@ One thing that will happen is you will get notifications showing you what talks 
 It is likely you may want to customize or change how the CFP App works.  Feel free to fork and modify as you see it, as long as you respect the MIT license.  If you feel any of your customizations are appropriate to contribute back to the project, please review our CONTRIBUTING.md file to see the guidelines on how to work with us to make the CFP App better.
 
 
-## Contributors
+### Contributors
 
 The CFP App was initially authored by Ben Scofield.  Marty Haught took over the project and lead development for the CFP for RailsConf 2014.  Below are the others that participated on the project while it was a private project.
 
