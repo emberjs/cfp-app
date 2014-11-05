@@ -5,11 +5,12 @@ The EmberConf cfp-app is a fork of the one originally developed by Ruby Central 
 At a high level the CFP App allows speakers to submit and manage their proposals for your event.  Organizers can create a group of reviewers that blindly review and rate talks.  Organizers can then select talks to be accepted into the program including a waitlist of proposals.  Finally organizers can create a schedule and slot confirmed talks.  Down below, I'll give a detailed description of the features and workflows of the CFP App under the section 'How to use the CFP App'
 
 ## Setup
-* Required Items
+
+### Required Items
 
 Make sure you have Ruby 2.1 and Postgres installed in your environment.  This is a Rails 4.1 app and uses bundler to install all required gems.  We are also making the assumption that you're familiar with how Rails apps and setup and deployed.  If this is not the case then you'll want to refer to documentation that will bridge any gaps in the instructions below.
 
-1. Install gem requirements
+### Install gem requirements
 
 ```bash
 bundle install
@@ -37,7 +38,7 @@ cp config/database_example.yml config/database.yml
 bundle exec rake db:create db:migrate db:seed
 ```
 
-NOTE: Seed will make an admin user with an email of an@admin.com to get started.  There is a special, development only login method in Omniauth that you can use to test it out.
+**NOTE**: Seed will make an admin user with an email of an@admin.com to get started.  There is a special, development only login method in Omniauth that you can use to test it out.
 
 1. Start the server
 
