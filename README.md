@@ -1,12 +1,11 @@
-# CFP-App
+# About
 
-This is a Ruby on Rails application that lets you manage your conference's call for proposal (CFP), program and schedule.  It was written by Ruby Central to run the CFPs for RailsConf and RubyConf.
-
-The CFP App does not provide a public facing website for your conference, though we have a sister project that does integration with the CFP App's export data to give you a starting place for your website.
+The EmberConf cfp-app is a fork of the one originally developed by Ruby Central for RailsConf and RubyConf. When changes are not specific to EmberConf, we aim to submit them back to RubyCentral for possible inclusion.
 
 At a high level the CFP App allows speakers to submit and manage their proposals for your event.  Organizers can create a group of reviewers that blindly review and rate talks.  Organizers can then select talks to be accepted into the program including a waitlist of proposals.  Finally organizers can create a schedule and slot confirmed talks.  Down below, I'll give a detailed description of the features and workflows of the CFP App under the section 'How to use the CFP App'
 
-## Getting Started
+## Setup
+* Required Items
 
 Make sure you have Ruby 2.1 and Postgres installed in your environment.  This is a Rails 4.1 app and uses bundler to install all required gems.  We are also making the assumption that you're familiar with how Rails apps and setup and deployed.  If this is not the case then you'll want to refer to documentation that will bridge any gaps in the instructions below.
 
@@ -110,7 +109,7 @@ Once done you should land on your event's organizers page.  This is the hub of m
 
 5. 'Edit Speaker Notifications' allows you to craft the email content that goes out to speakers when their talks are accepted, waitlisted or rejected. The app does have defaults but we recommend you draft your own email bodies.  On the right side there is a markup legend with some custom tags for making the emails dynamic such as including proposal title and confirmation link.
 
-### Navigation 
+### Navigation
 
 The nav bar has several parts to it.  On the far left we have the 'CFPApp' link which takes you to a public-facing events page.  There you would see all events active on the site.  
 
@@ -181,7 +180,7 @@ One thing that will happen is you will get notifications showing you what talks 
 
 ## Customizing and Contributing
 
-It is likely you may want to customize or change how the CFP App works.  Feel free to fork and modify as you see it, as long as you respect the MIT license.  If you feel any of your customizations are appropriate to contribute back to the project, please review our CONTRIBUTING.md file to see the guidelines on how to work with us to make the CFP App better.   
+It is likely you may want to customize or change how the CFP App works.  Feel free to fork and modify as you see it, as long as you respect the MIT license.  If you feel any of your customizations are appropriate to contribute back to the project, please review our CONTRIBUTING.md file to see the guidelines on how to work with us to make the CFP App better.
 
 
 ## Contributors
@@ -196,3 +195,9 @@ The CFP App was initially authored by Ben Scofield.  Marty Haught took over the 
 * Sarah Mei
 
 It was open sourced in May 2014 and moved to its new home.  Please view the contributor graph for those that have contributed since it was open sourced.
+
+The EmberConf fork has been coded and maintained by:
+
+* Ryan MdDonald
+* Leah Silber
+* Robert Jackson
