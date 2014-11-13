@@ -1,5 +1,7 @@
 CFPApp::Application.routes.draw do
-  get "/events/emberconf-2014", to: redirect('/events/emberconf-2015')
+
+  # Redirects
+  get "/events/emberconf-2014(*all)", to: redirect('/events/emberconf-2015%{all}')
 
   resources :notifications, only: [ :index, :show ] do
     post :mark_all_as_read, on: :collection
