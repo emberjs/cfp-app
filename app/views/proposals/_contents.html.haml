@@ -17,4 +17,5 @@
       = value.capitalize
       %div
 
-%h3 New Talk? #{proposal.new_talk ? 'yes' : 'no'}
+- unless preview
+  %h3 <span class="ballot">#{proposal.new_talk ? '☑︎' : '☐'}</span> New Talk
