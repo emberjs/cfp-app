@@ -10,4 +10,12 @@
  *
  *= require_self
  *= require_tree .
- */
+*/
+
+.badge.badge-important {
+  background-color: red;
+}
+
+.admin-page-btn a {
+  width: 100%;
+}
