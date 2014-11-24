@@ -38,7 +38,12 @@ cp config/database_example.yml config/database.yml
 bundle exec rake db:create db:migrate db:seed
 ```
 
-**NOTE**: Seed will make an admin user with an email of an@admin.com to get started.  There is a special, development only login method in Omniauth that you can use to test it out.
+**NOTE**: To test, log in via the _Developer_ link (not either OAuth option) with the following credentials:
+
+* **Username**: Admin
+* **Email**: an@admin.com
+
+This user is an organizer/admin, not a reviewer or submitter. If you need other users to test, this admin has the right permissions to create them.
 
 1. Start the server
 
