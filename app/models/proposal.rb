@@ -17,7 +17,8 @@ class Proposal < ActiveRecord::Base
   has_one :track, through: :session
 
   validates :title, :abstract, presence: true
-  validates :abstract, length: {maximum: 600}
+  validates :abstract, length: { maximum: 600 }
+  validates_associated :speakers
 
   serialize :last_change
   serialize :proposal_data, Hash
@@ -256,13 +257,18 @@ end
 #  abstract              :text
 #  details               :text
 #  pitch                 :text
+#  last_change           :text
+#  confirmation_notes    :text
 #  confirmed_at          :datetime
 #  created_at            :datetime
 #  updated_at            :datetime
+#  new_talk              :boolean
 #  last_change           :text
 #  confirmation_notes    :text
 #  updated_by_speaker_at :datetime
 #  proposal_data         :text
+#  prior_experience      :text
+#  video_url             :string(255)
 #
 # Indexes
 #

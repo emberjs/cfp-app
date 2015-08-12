@@ -51,12 +51,7 @@ class ProposalsController < ApplicationController
       current_user.update_bio
       flash[:info] = setup_flash_message
 
-      if current_user.demographics_complete?
-        redirect_to proposal_path(slug: @event.slug, uuid: @proposal)
-      else
-        flash[:warning] = "Please consider filling out the demographic data in your profile."
-        redirect_to edit_profile_path
-      end
+      redirect_to proposal_path(slug: @event.slug, uuid: @proposal)
     else
       flash[:danger] = 'There was a problem saving your proposal; please review the form for issues and try again.'
       render :new
@@ -100,9 +95,10 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit(:title, {tags: []}, :abstract, :details, :pitch, custom_fields: @event.custom_fields,
+    params.require(:proposal).permit(:title, {tags: []}, :abstract, :details, :pitch, :new_talk, :prior_experience, :video_url, custom_fields: @event.custom_fields,
                                      comments_attributes: [:body, :proposal_id, :person_id],
-                                     speakers_attributes: [:bio, :person_id, :id])
+                                     speakers_attributes: [:bio, :person_id, :id, :location, :headshot_url,
+                                                           :website, :twitter, :github, :speaking_experience])
   end
 
   def require_speaker

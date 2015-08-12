@@ -15,6 +15,13 @@
       %strong only
       be visible to the review committee.
 
+    = f.input :new_talk,
+      label: 'Is this a new talk?'
+
+    = f.input :prior_experience, input_html: { rows: 5 },
+      label: 'Are there any recordings of you giving talks online? Links please.',
+      placeholder: 'Link to both this talk elsewhere and recordings of other talks.'
+
     = f.input :details, input_html: { class: 'watched', rows: 10 },
       placeholder: 'Explain the theme and flow of your talk. What are the intended audience takeaways?',
       hint: 'Include any pertinent details such as outlines, outcomes or intended audience.'
@@ -38,6 +45,19 @@
       = f.label custom_field
       = text_field_tag "proposal[custom_fields][#{custom_field}]", proposal.custom_fields[custom_field], class: "form-control"
 
+    - if event.proposal_tags.present?
+      = f.select :tags,
+        options_for_select(event.proposal_tags, proposal.object.tags),
+        {}, {class: 'multiselect proposal-tags', multiple: true }
+
+    %p
+      This information will be
+      %strong hidden
+      from the review committee during blind review phases.
+
+    = f.input :video_url,
+      hint: 'This <em>optional</em> video will NOT be seen in the blind review phase (though in the second phase, it may help break ties. The intent is for this to be fun and light, <em>not</em> high pressure. You in front of a laptop using Photo Booth is the idea, <em>not</em> you spending too much time on video editing and script writing. It WILL be made public if your talk is accepted. We\'ll use these to help market your talk and EmberConf to the public once we announce the agenda, so feel free to be faux-presumptuous. Speak as though you\'ve already been accepted and are giving your audience a sneak peak. 1:30 max length please.',
+      label: 'Link to a Video Pitch (YouTube please)'
 
     = render partial: 'speakers/fields', locals: { f: f }
 

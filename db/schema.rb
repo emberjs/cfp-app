@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604225912) do
+ActiveRecord::Schema.define(version: 20141105212258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,11 +70,11 @@ ActiveRecord::Schema.define(version: 20150604225912) do
 
   create_table "notifications", force: true do |t|
     t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "message"
     t.datetime "read_at"
     t.string   "target_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "notifications", ["person_id"], name: "index_notifications_on_person_id", using: :btree
@@ -120,6 +120,8 @@ ActiveRecord::Schema.define(version: 20150604225912) do
     t.text     "abstract"
     t.text     "details"
     t.text     "pitch"
+    t.text     "last_change"
+    t.text     "confirmation_notes"
     t.datetime "confirmed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -127,6 +129,9 @@ ActiveRecord::Schema.define(version: 20150604225912) do
     t.text     "confirmation_notes"
     t.datetime "updated_by_speaker_at"
     t.text     "proposal_data"
+    t.boolean  "new_talk"
+    t.text     "prior_experience"
+    t.string   "video_url"
   end
 
   add_index "proposals", ["event_id"], name: "index_proposals_on_event_id", using: :btree
@@ -192,6 +197,12 @@ ActiveRecord::Schema.define(version: 20150604225912) do
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "website"
+    t.string   "github"
+    t.string   "twitter"
+    t.string   "speaking_experience"
+    t.string   "headshot_url"
+    t.string   "location"
   end
 
   add_index "speakers", ["person_id"], name: "index_speakers_on_person_id", using: :btree
