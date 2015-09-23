@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105212258) do
+ActiveRecord::Schema.define(version: 20150604225912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20141105212258) do
     t.hstore   "speaker_notification_emails", default: {"accept"=>"", "reject"=>"", "waitlist"=>""}
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "archived",                    default: false
+    t.text     "custom_fields"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", using: :btree
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20141105212258) do
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "notifications", default: true
   end
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
@@ -111,7 +114,7 @@ ActiveRecord::Schema.define(version: 20141105212258) do
 
   create_table "proposals", force: true do |t|
     t.integer  "event_id"
-    t.string   "state",              default: "submitted"
+    t.string   "state",                 default: "submitted"
     t.string   "uuid"
     t.string   "title"
     t.text     "abstract"
@@ -125,6 +128,8 @@ ActiveRecord::Schema.define(version: 20141105212258) do
     t.boolean  "new_talk"
     t.text     "prior_experience"
     t.string   "video_url"
+    t.datetime "updated_by_speaker_at"
+    t.text     "proposal_data"
   end
 
   add_index "proposals", ["event_id"], name: "index_proposals_on_event_id", using: :btree
@@ -150,6 +155,7 @@ ActiveRecord::Schema.define(version: 20141105212258) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "grid_position"
   end
 
   add_index "rooms", ["event_id"], name: "index_rooms_on_event_id", using: :btree
@@ -168,8 +174,8 @@ ActiveRecord::Schema.define(version: 20141105212258) do
 
   create_table "sessions", force: true do |t|
     t.integer  "conference_day"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time     "start_time"
+    t.time     "end_time"
     t.text     "title"
     t.text     "description"
     t.text     "presenter"

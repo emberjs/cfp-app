@@ -23,8 +23,10 @@ class Person < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :proposals, through: :speakers, source: :proposal
 
+
   validates :email, uniqueness: { case_insensitive: true }, allow_nil: true
   validates :bio, length: { maximum: 500 }
+  validates :name, :presence => true, allow_nil: true
 
   def self.authenticate(auth, current_user = nil)
     provider = auth['provider']
@@ -67,7 +69,7 @@ class Person < ActiveRecord::Base
   end
 
   def update_bio
-    update(bio: speakers.last.bio) if bio.blank?
+    update(bio: speakers.last.bio) if bio.blank? && speakers.present?
   end
 
   def gravatar_hash
