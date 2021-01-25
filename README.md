@@ -1,3 +1,7 @@
+# ARCHIVED
+
+See https://github.com/tildeio/cfp-app.
+
 # CFP-App
 
 This is a Ruby on Rails application that lets you manage your conference's call for proposal (CFP), program and schedule.  It was written by Ruby Central to run the CFPs for RailsConf and RubyConf.
